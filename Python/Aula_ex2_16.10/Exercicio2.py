@@ -1,8 +1,9 @@
 user = "Professor"
 senha = "1234"
 contador = "s"  
-
+print("=" * 100)
 print("Boas-vindas à tela de login!")
+print("=" * 100)
 
 while contador == "s":
     user_novo = input("Qual seu usuário?: ")
@@ -12,6 +13,13 @@ while contador == "s":
         
         break  
     else:
+        print("=" * 100)
         print("Usuário ou senha incorretos.")
-        contador = input("\nTentar novamente? (s/n): ").lower()
+        print("=" * 100)
+        contador = input("\nTentar novamente? (s/n): (nota: Digitar algo além de 's' acarretará no fim do programa.): ").lower()
         print("Obrigado por usar nosso programa.")
+        print("=" * 100)
+        print("Trabalho feito por:\n \nGustavo: encerramento \nVinicius: login \nLuiz: código\n")
+        print("=" * 100)
+        
+        
