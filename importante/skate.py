@@ -1,15 +1,16 @@
 import random
-random.random
 competidores = {}
 def cadastro():
     nome = input("Nome do Skatista: ")
-    manobras = int(input("Quantas manobras?: "))
-    
+    manobras = int(input("Quantas manobras? "))
     notas = []
-    
     for i in range(manobras):
-        nota = float(input(f"Nota da manobra {i+1}: "))
+        nota = int((random.random() *15))
         notas.append(nota)
+        if nota >= 5:
+            print("O Skatista acertou a manobra, e a nota foi ",nota)
+        else:
+            print("O Skatista errou a manobra, e recebeu a nota ",nota)
 
     notas_validas = notas[:]
     if len(notas) >= 3:
@@ -22,11 +23,8 @@ def cadastro():
         "notas":notas,
         "validas":notas_validas,
         "media":media
-}
-def aleatorio():
-    x = random.random * 10
-    print(x)
-
+    }
+    
 def ranking():
     print("\n---RANKING FINAL---")
     ordem = sorted(competidores.items(),key=lambda x: x[1]['media'],reverse = True)
@@ -34,16 +32,14 @@ def ranking():
         print(f"{i}º - {nome} ({dados['media']:.2f})")
 
 while True:
-    print("\n---COMPETIÇÃO DE SKATE---\n1 - CADASTRAR SKATISTA\n3 - MOSTRAR RANKING\n4 - SAIR")
+    print("\n\n---COMPETIÇÃO DE SKATE---\n\nOs jurados darão as notas para as manobras dos skatistas.\n\n1 - CADASTRAR SKATISTA\n2 - MOSTRAR RANKING\n3 - SAIR")
 
-    op = input("Escolha:")
+    op = input("Escolha: ")
     if op == "1":
         cadastro()
     elif op == "2":
         ranking()
     elif op == "3":
-        aleatorio()
-    elif op == "4":
         break
     else:
         print("Opção invalida")
